@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#conatiner{
+    position: relative;
+    width: 800px;
+    height: 800px;
+    overflow: hidden;
+    background-color: aqua;
+}
+.dragBox{
+    width: 6rem;
+    height: 6rem;
+    border: 0.5rem solid #b0a50b;
+    background-color: #fff000;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.draggableSection{
+    list-style: none;
+}
+.draggableSection li{
+    position: relative;
+}
