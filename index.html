@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag Drop - learning</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #conatiner{
+            position: relative;
+            width: 800px;
+            height: 800px;
+            overflow: hidden;
+            background-color: aqua;
+        }
+        .dragBox{
+            width: 6rem;
+            height: 6rem;
+            border: 0.5rem solid #b0a50b;
+            background-color: #fff000;
+            border-radius: 50%;
+            position: absolute;
+            font-size: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .draggableSection{
+            list-style: none;
+        }
+        .draggableSection li{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div id="conatiner">
+    <ul class="draggableSection">
+        <li><div class="dragBox">A</div></li>
+        <li><div class="dragBox">N</div></li>
+        <li><div class="dragBox">T</div></li>
+    </ul>
+</div>
+</body>
+<script>
+    const dragBoxs = document.querySelectorAll('.dragBox')
+
+    const list = document.querySelectorAll('.draggableSection li')
+
+    // console.log(list);
+
+    let leftLeftPos = 6
+    
+    list.forEach((itemPos) => {
+        itemPos.style.left = `${leftLeftPos}rem`
+        leftLeftPos ++
+    })
+
+    // console.log(dragBoxs);
+
+    dragBoxs.forEach((item) => {
+        item.addEventListener("touchmove", (e) => {
+            e.preventDefault()
+
+            let touch = e.touches[0]
+
+            // console.log(touch.clientX);
+            // console.log(touch.clientY);
+
+            e.target.style.top = `${touch.clientY}px`
+            e.target.style.left = `${touch.clientX}px`
+            
+        })
+    })
+    
+</script>
+</html>
